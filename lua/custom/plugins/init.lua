@@ -55,7 +55,7 @@ return {
     'jay-babu/mason-nvim-dap.nvim',
     event = 'VeryLazy',
     dependencies = {
-      'willliamboman/mason.nvim',
+      'mason-org/mason.nvim',
       'mfussenegger/nvim-dap',
     },
     opts = {
