@@ -101,8 +101,15 @@ end, {
   silent = true,
 })
 
+vim.fn.sign_define('DapStopped', {
+  text = '👉',
+  texthl = 'DapStoppedLine',
+  linehl = 'Visual',
+  numhl = '',
+})
+
 vim.fn.sign_define('DapBreakpoint', {
-  text = '🛑',
+  text = '🔴',
   texthl = 'DapBreakpoint',
   linehl = '',
   numhl = '',

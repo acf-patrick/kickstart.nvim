@@ -3,6 +3,17 @@
 -- See the kickstart.nvim README for more information
 
 return {
+  {
+    'nvim-lualine/lualine.nvim',
+    dependencies = { 'nvim-tree/nvim-web-devicons' },
+    config = function()
+      local lualine_time = require 'acf.lualine_time'
+      local lualine = require 'lualine'
+      local configs = lualine.get_config()
+      configs.sections.lualine_y = { lualine_time }
+      lualine.setup(configs)
+    end,
+  },
   { 'nvim-neotest/nvim-nio' },
   {
     'mfussenegger/nvim-dap',
@@ -17,7 +28,6 @@ return {
     config = function()
       local dap = require 'dap'
       local dapui = require 'dapui'
-
       dapui.setup()
 
       dap.listeners.after.event_initialized['dapui_config'] = function()
@@ -30,6 +40,14 @@ return {
 
       dap.listeners.before.event_exited['dapui_config'] = function()
         dapui.close()
+      end
+
+      dap.listeners.before.attach['dapui_config'] = function()
+        dapui.open()
+      end
+
+      dap.listeners.before.launch['dapui_config'] = function()
+        dapui.open()
       end
     end,
   },
