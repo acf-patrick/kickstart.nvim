@@ -1,5 +1,6 @@
 require 'acf.dap'
 require 'acf.keymaps'
+require 'acf.commands'
 
 vim.opt.rnu = true
 
