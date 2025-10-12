@@ -1,3 +1,6 @@
+require 'acf.dap'
+require 'acf.keymaps'
+
 vim.opt.rnu = true
 
 vim.g.mapleader = ' '
@@ -17,28 +20,6 @@ vim.opt.smartindent = true
 
 vim.opt.foldmethod = 'expr'
 vim.opt.foldexpr = 'nvim_treesitter#foldexpr()'
-
-vim.keymap.set('n', '<C-Up>', ':resize +2<CR>')
-vim.keymap.set('n', '<C-Down>', ':resize -2<CR>')
-vim.keymap.set('n', '<C-Left>', ':vertical resize -2<CR>')
-vim.keymap.set('n', '<C-Right>', ':vertical resize +2<CR>')
-
--- DAP keymaps
-vim.keymap.set('n', '<leader>db', '<cmd> DapToggleBreakpoint <CR>', { desc = 'Add breakpoint at line' })
-vim.keymap.set('n', '<leader>dr', '<cmd> DapContinue <CR>', { desc = 'Start or continue the debugger' })
--- TODO : add other keymap for step into/after/out
-
-vim.fn.sign_define('DapBreakpoint', {
-  text = '🛑',
-  texthl = 'DapBreakpoint',
-  linehl = '',
-  numhl = '',
-})
-
-vim.cmd [[
-    highlight DapBreakpoint guifg=#ff5555
-    highlight DapStoppedLine guibg=#282c34
-]]
 
 -- make file explorer follow code buffer
 require('neo-tree').setup {

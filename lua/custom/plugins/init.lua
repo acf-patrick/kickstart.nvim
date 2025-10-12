@@ -4,7 +4,9 @@
 
 return {
   { 'nvim-neotest/nvim-nio' },
-  { 'mfussenegger/nvim-dap' },
+  {
+    'mfussenegger/nvim-dap',
+  },
   {
     'rcarriga/nvim-dap-ui',
     event = 'VeryLazy',
@@ -15,6 +17,7 @@ return {
     config = function()
       local dap = require 'dap'
       local dapui = require 'dapui'
+
       dapui.setup()
 
       dap.listeners.after.event_initialized['dapui_config'] = function()
