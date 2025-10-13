@@ -108,8 +108,15 @@ vim.fn.sign_define('DapStopped', {
   numhl = '',
 })
 
+vim.fn.sign_define('DapBreakpointCondition', {
+  text = '⦿',
+  texthl = 'DapBreakpoint',
+  linehl = '',
+  numhl = '',
+})
+
 vim.fn.sign_define('DapBreakpoint', {
-  text = '🔴',
+  text = '●',
   texthl = 'DapBreakpoint',
   linehl = '',
   numhl = '',
@@ -119,3 +126,6 @@ vim.cmd [[
     highlight DapBreakpoint guifg=#ff5555
     highlight DapStoppedLine guibg=#282c34
 ]]
+
+vim.api.nvim_set_hl(0, 'DapBreakpoint', { fg = '#E06C75' }) -- red
+vim.api.nvim_set_hl(0, 'DapBreakpointCondition', { fg = '#E5C07B' }) -- yellow
