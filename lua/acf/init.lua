@@ -20,8 +20,17 @@ vim.opt.shiftwidth = 4
 vim.opt.autoindent = true
 vim.opt.smartindent = true
 
+-- enable scope folding
 vim.opt.foldmethod = 'expr'
 vim.opt.foldexpr = 'nvim_treesitter#foldexpr()'
+
+-- enable global status only
+vim.api.nvim_create_autocmd('User', {
+  pattern = 'VeryLazy',
+  callback = function()
+    vim.opt.laststatus = 3
+  end,
+})
 
 -- make file explorer follow code buffer
 require('neo-tree').setup {

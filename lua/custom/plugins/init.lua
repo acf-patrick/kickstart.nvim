@@ -6,6 +6,10 @@ return {
   {
     'nvim-lualine/lualine.nvim',
     dependencies = { 'nvim-tree/nvim-web-devicons' },
+    options = {
+      theme = 'auto',
+      globalstatus = true,
+    },
     config = function()
       local lualine_time = require 'acf.lualine_time'
       local lualine = require 'lualine'
@@ -87,5 +91,19 @@ return {
     opts = {
       handler = {},
     },
+  },
+  {
+    'NeogitOrg/neogit',
+    dependencies = {
+      'nvim-lua/plenary.nvim',
+      'sindrets/diffview.nvim',
+      'nvim-telescope/telescope.nvim',
+    },
+    config = function()
+      local neogit = require 'neogit'
+      neogit.setup {
+        kind = 'floating',
+      }
+    end,
   },
 }
