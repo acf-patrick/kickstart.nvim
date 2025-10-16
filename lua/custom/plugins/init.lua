@@ -4,6 +4,21 @@
 
 return {
   {
+    'SmiteshP/nvim-navic',
+    config = function()
+      local navic = require 'nvim-navic'
+      navic.setup {
+        lsp = { auto_attach = true },
+      }
+    end,
+  },
+  { 'LunarVim/breadcrumbs.nvim', dependencies = { 'SmiteshP/nvim-navic' } },
+  {
+    'catppuccin/nvim',
+    name = 'catppuccin',
+    priority = 1000,
+  },
+  {
     'nvim-lualine/lualine.nvim',
     dependencies = { 'nvim-tree/nvim-web-devicons' },
     options = {

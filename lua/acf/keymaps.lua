@@ -19,3 +19,9 @@ vim.keymap.set('n', '<leader>cw', function()
     severity = vim.diagnostic.severity.WARN,
   }
 end, { noremap = true, silent = true })
+
+vim.keymap.set('n', '<C-Space>', function()
+  vim.lsp.buf.hover()
+end)
+
+vim.keymap.set('n', '<leader>cs', '<cmd>Telescope colorscheme<CR>', { desc = 'Switch color scheme' })

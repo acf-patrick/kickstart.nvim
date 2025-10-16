@@ -3,6 +3,9 @@ require 'acf.keymaps'
 require 'acf.commands'
 require 'acf.blink'
 
+local colorscheme = require 'acf.colorscheme'
+colorscheme.setupTheme()
+
 vim.opt.rnu = true
 
 vim.g.mapleader = ' '
@@ -42,3 +45,6 @@ require('neo-tree').setup {
     use_libuv_file_watcher = true,
   },
 }
+
+-- enable breadcrumb
+require('breadcrumbs').setup()
