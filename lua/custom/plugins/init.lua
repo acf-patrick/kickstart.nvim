@@ -4,6 +4,21 @@
 
 return {
   {
+    'lukas-reineke/indent-blankline.nvim',
+    main = 'ibl',
+    opts = {
+      scope = { enabled = true },
+      indent = {
+        char = '┊',
+        highlight = { 'IblIndent' },
+      },
+    },
+    config = function(_, opts)
+      require('ibl').setup(opts)
+      vim.api.nvim_set_hl(0, 'IblIndent', { fg = '#3b3b3b', nocombine = true })
+    end,
+  },
+  {
     'SmiteshP/nvim-navic',
     config = function()
       local navic = require 'nvim-navic'

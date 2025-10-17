@@ -25,3 +25,8 @@ vim.keymap.set('n', '<C-Space>', function()
 end)
 
 vim.keymap.set('n', '<leader>cs', '<cmd>Telescope colorscheme<CR>', { desc = 'Switch color scheme' })
+
+vim.keymap.set('n', '<leader>h', function()
+  local enabled = vim.lsp.inlay_hint.is_enabled()
+  vim.lsp.inlay_hint.enable(not enabled)
+end, { desc = 'Toggle Inlay Hints' })
