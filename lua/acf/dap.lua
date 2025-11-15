@@ -51,7 +51,7 @@ vim.keymap.set('n', '<leader>dxb', function()
   vim.ui.input({ prompt = 'Enter condition: ' }, function(cond)
     dap.set_breakpoint(cond and cond ~= '' and cond or nil)
   end)
-end, { desc = 'Add breakpoint at line' })
+end, { desc = 'Add conditional breakpoint at line' })
 
 -- Evaluate expression
 vim.keymap.set('n', '<F12>', function()

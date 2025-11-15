@@ -6,19 +6,19 @@ vim.keymap.set('n', '<C-Right>', ':vertical resize +2<CR>')
 -- clang code suggestion
 vim.keymap.set('n', '<leader>ca', function()
   vim.lsp.buf.code_action()
-end, { noremap = true, silent = true })
+end, { noremap = true, silent = true, desc = 'Show code actions' })
 
 vim.keymap.set('n', '<leader>ce', function()
   vim.diagnostic.setqflist {
     severity = vim.diagnostic.severity.ERROR,
   }
-end, { noremap = true, silent = true })
+end, { noremap = true, silent = true, desc = 'Show code actions for Errors' })
 
 vim.keymap.set('n', '<leader>cw', function()
   vim.diagnostic.setqflist {
     severity = vim.diagnostic.severity.WARN,
   }
-end, { noremap = true, silent = true })
+end, { noremap = true, silent = true, desc = 'Show code actions for Warnings' })
 
 vim.keymap.set('n', '<C-Space>', function()
   vim.lsp.buf.hover()
