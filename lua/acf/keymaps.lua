@@ -30,3 +30,12 @@ vim.keymap.set('n', '<leader>h', function()
   local enabled = vim.lsp.inlay_hint.is_enabled()
   vim.lsp.inlay_hint.enable(not enabled)
 end, { desc = 'Toggle Inlay Hints' })
+
+vim.keymap.set('n', '<leader>bo', function()
+  local current = vim.api.nvim_get_current_buf()
+  for _, b in ipairs(vim.api.nvim_list_bufs()) do
+    if b ~= current and vim.api.nvim_buf_is_loaded(b) then
+      vim.api.nvim_buf_delete(b, {})
+    end
+  end
+end, { desc = 'Keep this [B]uffer [O]nly' })
